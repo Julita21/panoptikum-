@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <h1>
+        Profil uzytkownika {{ userprofile.user.username }}
+    </h1>
+    {{ userprofile.bio }}
+
+    {% if user == puser %}
+
+
+    <form method="POST">
+        {{ form|crispy }}
+        <button type="submit" class="btn btn=primary">Wyslij</button>
+    </form>
+
+    {% endif %}
+{% endblock %}

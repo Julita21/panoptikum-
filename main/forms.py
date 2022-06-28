@@ -2,10 +2,11 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
+from main.models import UserProfile
+
 
 class NewUserForm(UserCreationForm):
     email = forms.EmailField()
-
 
     class Meta:
         model = User
@@ -18,3 +19,13 @@ class NewUserForm(UserCreationForm):
             user.save()
         return user
 
+class UserProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = UserProfile
+        fields = ["bio"]
+
+class ContactForm(forms.Form):
+    name = forms.CharField()
+    email = forms.EmailField()
+    content = forms.CharField(widget=forms.Textarea)

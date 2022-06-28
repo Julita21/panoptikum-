@@ -19,3 +19,5 @@ class Post(models.Model):
         return f" {self.title} ({self.author})"
 
 
+
+

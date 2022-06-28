@@ -1,10 +1,12 @@
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib import messages
 
 # Create your views here.
-from main.forms import NewUserForm
+from main.forms import NewUserForm, UserProfileForm, ContactForm
+
 
 def homepage(request):
    messages.add_message(request, messages.INFO, 'Hello world.')
@@ -62,3 +64,47 @@ def logout_request(request):
     logout(request)
     messages.info(request, "You are successfully logged out")
     return redirect("/")
+
+def user_profile(request, id):
+    user = User.objects.get(pk=id)
+    try:
+        profile = user.userprofile
+    except AttributeError:
+        profile = None
+    except Exception:
+        profile = None
+
+
+    if request.method == "POST":
+        form = UserProfileForm(data=request.POST, instance=profile)
+        if form.is_valid():
+                profile.save()
+
+    if profile:
+        form = UserProfileForm(instance=profile)
+    else:
+        form = UserProfileForm()
+
+
+    return render(
+        request,
+        "main/userprofile.html",
+        context={'form':form,
+                 'userprofile': profile}
+    )
+
+def content(request):
+    form = ContactForm()
+    if request.method == "POST":
+        form = ContactForm(data=request.POST)
+    if form.is_valid():
+        data = form.cleaned_data
+        print("wysyłka maila...", data)
+
+        return render(
+            request,
+            'main/userprofile.html',
+            context=
+
+
+        )

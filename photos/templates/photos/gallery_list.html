@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for g in galleries %}
+<!--        <a href="/galleries/{{ g.id }}">{{ g.title }}</a>-->
+        <a href="{% url 'photos:gallery_details' g.id %}">{{ g.title }}</a>
+    {% endfor %}
+{% endblock %}
+
