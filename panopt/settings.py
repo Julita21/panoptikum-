@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'bootstrap5',
+    'crispy_forms',
+    'crispy_bootstrap5',
+
     'main.apps.MainConfig',
 ]
 
@@ -127,7 +131,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = ["https://boiling-earth-23753.herokuapp.com"]
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
 import django_heroku
 django_heroku.settings(locals())
+
 
 

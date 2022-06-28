@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load bootstrap5 %}
 
-<form method="POST">
-    {% csrf_token %}
-    {{ register_form.as_p }}
-    <button type="submit">Register</button>
-</form>
-</body>
-</html>
+{% block content %}
+    <div class="row">
+        <div class="col-lg-3 col-s-1"></div>
+        <div class="col-lg-6 col-s-10">
+            {{ blok.super }}
+            <h1>Sign up</h1>
+            <form method="POST">
+                {% csrf_token %}
+                {% bootstrap_form register_form %}
+                <button type="submit">Register</button>
+            </form>
+        </div>
+        <div class="col-lg-3 col-s-1"></div>
+    </div>
+{% endblock %}
