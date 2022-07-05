@@ -9,5 +9,6 @@ urlpatterns = [
     path("login/", login_request, name='login'),            # /login/
     path("logout/", logout_request, name='logout'),         # /logout/
     path("user/<int:id>/userprofile/", user_profile, name="userprofile")  # /user/1/userprofile/
+
 ]
 

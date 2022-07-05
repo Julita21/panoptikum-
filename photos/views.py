@@ -15,4 +15,9 @@ def gallery_list(request):
 
 def gallery_details(request, id):
     gallery = Gallery.objects.get(pk=id)
-    pass
+
+    return render(
+        request,
+        "photos/details.html",
+        {"gallery": gallery}
+    )

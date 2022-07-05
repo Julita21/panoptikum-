@@ -2,16 +2,16 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <h1>
-        Profil uzytkownika {{ userprofile.user.username }}
+    Profil uzytkownika {{ userprofile.user.username }}
     </h1>
     {{ userprofile.bio }}
 
     {% if user == puser %}
 
-
     <form method="POST">
+        {% csrf_token %}
         {{ form|crispy }}
-        <button type="submit" class="btn btn=primary">Wyslij</button>
+        <button type="submit" class="btn btn-primary">Wyslij</button>
     </form>
 
     {% endif %}

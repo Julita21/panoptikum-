@@ -18,6 +18,9 @@ class Post(models.Model):
     def __repr__(self):
         return f" {self.title} ({self.author})"
 
+    def __str__(self):
+        return self.__repr__()
+
 
 
 

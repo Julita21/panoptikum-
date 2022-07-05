@@ -1,0 +1,15 @@
+{% extends 'base_relations.html' %}
+
+{% block content %}
+    <form>
+    query: <input type="text" name="q">
+        <button type="submit">szukaj</button>
+    </form>
+
+    <ul>
+        {% for a in authors %}
+        <li><a href="{% url 'publications:author_details' a.id %}">{{a}}</a></li>
+        {% endfor %}
+
+        {% endblock %}
+    </ul>

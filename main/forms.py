@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 
 from main.models import UserProfile
 
+class BirdForm(forms.Form):
+    name = forms.CharField()
 
 class NewUserForm(UserCreationForm):
     email = forms.EmailField()

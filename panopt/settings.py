@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'posts.apps.PostsConfig',
     'photos.apps.PhotosConfig',
+    'relations.apps.RelationsConfig',
 ]
 
 if DEBUG:
@@ -67,7 +68,7 @@ ROOT_URLCONF = 'panopt.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

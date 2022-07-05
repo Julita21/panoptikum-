@@ -3,6 +3,6 @@ from .models import Post
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ["id", "title", "slug", "author"]
-
+    list_filter = ['author']
 
 admin.site.register(Post, PostAdmin)
